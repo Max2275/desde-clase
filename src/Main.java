@@ -3,7 +3,17 @@
 public class Main {
     public static void main(String[] args) {
 
+
         Tablero tablero = new Tablero();
+        Juego juego = new Juego();
         tablero.pintarTablero();
+        String jugada = "A2A3";
+        Movimiento mov = juego.validarJugada(jugada);
+        if (mov!= null) {
+            // tablero la pieza de la posición inicial de este mov puede moverse así?
+            //mover
+            //pintarTablero
+            //cambiar turno
+        }
     }
 }

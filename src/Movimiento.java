@@ -31,7 +31,8 @@ public class Movimiento {
         return posFinal.getFila()- posInicial.getFila();
     }
     public boolean esDiagonal(){
-return true;
+        return Math.abs(saltoHorizontal())==Math.abs(saltoVertical());
+
     }
 
 

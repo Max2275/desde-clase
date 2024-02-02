@@ -1,19 +1,16 @@
 public abstract class Pieza {
 
     private String color;
-    private String nombre;
+    protected String nombre;
     public Pieza(){
         nombre=this.getClass().getSimpleName();
         color="Blanco";
     }
-    public Pieza(String color,String nombre) {
-        this.nombre=getClass().getSimpleName();
+    public Pieza(String color) {
+        nombre=getClass().getSimpleName();
         this.color = color;
     }
 
-    public Pieza (String color){
-
-    }
     public abstract boolean validoMovimiento(Movimiento mov);
 
     public String getColor() {
