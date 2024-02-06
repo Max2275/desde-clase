@@ -6,7 +6,13 @@ public class Peon extends Pieza {
 
     @Override
     public boolean validoMovimiento(Movimiento mov) {
-        return false;
+        boolean  aux = true;
+        if ((mov.posInicial.getFila()==1 && getColor().equalsIgnoreCase("Blanco") || mov.posInicial.getFila()== 6 && getColor().equalsIgnoreCase("negro") )&& mov.saltoVertical()==2)
+            aux=false;
+        else if (mov.saltoVertical()==1) {
+            aux=true;
+        }
+        return aux;
     }
 }
 

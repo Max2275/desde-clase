@@ -3,8 +3,12 @@ public class Caballo extends Pieza {
         super(color);
 
     }
+
     @Override
     public boolean validoMovimiento(Movimiento mov) {
-        return false;
+        boolean respuesta = false;
+        if ((Math.abs(mov.saltoHorizontal()) == 2 && Math.abs(mov.saltoVertical()) == 1) || (Math.abs(mov.saltoVertical()) == 2 && Math.abs(mov.saltoHorizontal()) == 1))
+            respuesta = true;
+        return respuesta;
     }
 }

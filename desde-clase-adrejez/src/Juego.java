@@ -2,26 +2,22 @@ import java.util.Random;
 
 public class Juego {
 
-    private String elTurno;
-
-    public String toString() {
-        if (elTurno.equalsIgnoreCase("Blanco")) return "Es el turno de blanco";
-        else return "Es el turno de negro";
-    }
+    protected String elTurno;
 
     public Juego() {
-        elTurno = "Blanco";
+        elTurno = "blanco";
     }
 
     public Movimiento validarJugada(String jugada, Tablero tablero) {
         Movimiento mov = null;
         //int filaInicial, fila
         int columnaInicial = jugada.charAt(0) - 65;
-        int filaInicial = jugada.charAt(1) - 49;
+        int filaInicial = 7 - (jugada.charAt(1) - 49);
         int columnaFinal = jugada.charAt(2) - 65;
-        int filaFinal = jugada.charAt(3) - 49;
+        int filaFinal = 7 - (jugada.charAt(3) - 49);
 
         //validaciones de la jugada
+
         if (jugada.length() != 4) {
             System.out.println("Error. La jugada tiene que tener 4 caracteres ejm: A2A3");
         } else if (filaInicial > 7 || filaInicial < 0) {
@@ -34,28 +30,26 @@ public class Juego {
             System.out.println("Error. El cuarto caracter es erroneo. Debe ser un numero entre 1 y 8 para indicar a que columna va.");
         } else if (!tablero.hayPieza(filaInicial, columnaInicial)) {
             System.out.println("Error. No hay pieza en la pos inicial");
-        } else if (!tablero.damePieza(filaInicial, columnaInicial).getColor().equalsIgnoreCase(elTurno)){
+        } else if (!tablero.damePieza(filaInicial, columnaInicial).getColor().equalsIgnoreCase(elTurno)) {
             System.out.println("Error. No puedes mover las piezas del contrario");
-        } else if ((tablero.hayPieza(filaFinal,columnaFinal))&&(tablero.damePieza(filaFinal,columnaFinal).getColor().equalsIgnoreCase(elTurno))) {
+        } else if ((tablero.hayPieza(filaFinal, columnaFinal)) && (tablero.damePieza(filaFinal, columnaFinal).getColor().equalsIgnoreCase(elTurno))) {
             System.out.println("Error. No puedes comerte tu propia pieza.");
 
         }//habemus pieza
-         else
-             mov=new Movimiento(new Posicion(filaInicial,columnaInicial),new Posicion(filaFinal,columnaFinal));
+        else
+            mov = new Movimiento(new Posicion(filaInicial, columnaInicial), new Posicion(filaFinal, columnaFinal));
 
         return mov;
     }
 
-    public void cambiarTurno(){
-        if (elTurno.equalsIgnoreCase("Blanco")){
-            elTurno="Negro";
-        }else{
-            elTurno="Blanco";
+    public void cambiarTurno() {
+        if (elTurno.equalsIgnoreCase("blanco")) {
+            elTurno = "negro";
+        } else {
+            elTurno = "blanco";
         }
     }
-
-
-                }
+}
 
 
 

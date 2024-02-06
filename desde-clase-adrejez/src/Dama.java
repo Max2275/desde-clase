@@ -6,6 +6,9 @@ public class Dama extends Pieza {
 
     @Override
     public boolean validoMovimiento(Movimiento mov) {
-        return false;
+        boolean aux=false;
+        if (mov.esHorizontal()||mov.esDiagonal()||mov.esVertical())
+            aux=true;
+        return aux;
     }
 }

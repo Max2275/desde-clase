@@ -6,9 +6,10 @@ public class Rey extends Pieza {
 
     @Override
     public boolean validoMovimiento(Movimiento mov) {
-        boolean aux;
 
-
-        return false;
+        boolean aux=false;
+        if (Math.abs(mov.saltoHorizontal()) == 1 || Math.abs(mov.saltoVertical())==1 || mov.esDiagonal())
+            aux=true;
+        return aux;
     }
 }
