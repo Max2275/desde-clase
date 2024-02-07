@@ -11,7 +11,7 @@ public abstract class Pieza {
         this.color = color;
     }
 
-    public abstract boolean validoMovimiento(Movimiento mov);
+    public abstract boolean validoMovimiento(Movimiento mov,Tablero tablero);
 
     public String getColor() {
         return color;

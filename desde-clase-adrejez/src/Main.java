@@ -19,7 +19,7 @@ public class Main {
 
             aux=false;
             Movimiento mov = juego.validarJugada(jugada.toUpperCase(),tablero);
-            if (mov != null && tablero.damePieza(mov.posInicial).validoMovimiento(mov)) {
+            if (mov != null && tablero.damePieza(mov.posInicial).validoMovimiento(mov,tablero)) {
                 tablero.Mover(mov);
             } else if (mov!=null) {
                 System.out.println("Error.No se puede realizar este movimiento.");

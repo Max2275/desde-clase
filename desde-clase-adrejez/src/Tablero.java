@@ -56,6 +56,26 @@ public class Tablero {
         return hayPieza(pos.getFila(), pos.getColumna());
     }
 
+    public boolean hayPiezaEntre(Movimiento mov){
+        boolean aux = true;
+
+        if (mov.esVertical()){
+            int filaMenor;
+            int filaMayor;
+            if (mov.posInicial.getFila()>mov.posFinal.getFila()) {
+                filaMayor = mov.posInicial.getFila();
+                filaMenor = mov.posFinal.getFila();
+            }else{
+                filaMayor = mov.posFinal.getFila();
+                filaMenor = mov.posInicial.getFila();
+            }
+            for (int i = filaMenor  ; filaMayor>filaMenor; i++) {
+                hayPieza(filaMenor);
+            }
+        }
+        return aux;
+    }
+
     public void ponPieza(int filaInicial, int columnaInicial, Pieza figura) {
         tablero[filaInicial][columnaInicial] = figura;
     }

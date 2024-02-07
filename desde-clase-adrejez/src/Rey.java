@@ -5,7 +5,7 @@ public class Rey extends Pieza {
     }
 
     @Override
-    public boolean validoMovimiento(Movimiento mov) {
+    public boolean validoMovimiento(Movimiento mov, Tablero tablero) {
 
         boolean aux=false;
         if (Math.abs(mov.saltoHorizontal()) == 1 || Math.abs(mov.saltoVertical())==1 || mov.esDiagonal())

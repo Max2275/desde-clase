@@ -3,7 +3,7 @@ public class Alfil extends Pieza {
         super(color);
     }
     @Override
-    public boolean validoMovimiento(Movimiento mov) {
+    public boolean validoMovimiento(Movimiento mov, Tablero tablero) {
         boolean aux=false;
         if (mov.esDiagonal())
             aux=true;

@@ -35,10 +35,9 @@ public class Juego {
         } else if ((tablero.hayPieza(filaFinal, columnaFinal)) && (tablero.damePieza(filaFinal, columnaFinal).getColor().equalsIgnoreCase(elTurno))) {
             System.out.println("Error. No puedes comerte tu propia pieza.");
 
-        }//habemus pieza
-        else
+        } else {
             mov = new Movimiento(new Posicion(filaInicial, columnaInicial), new Posicion(filaFinal, columnaFinal));
-
+        }
         return mov;
     }
 
