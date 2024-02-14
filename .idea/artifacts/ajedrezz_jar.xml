@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ajedrezz:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ajedrezz_jar</output-path>
+    <root id="archive" name="ajedrezz.jar">
+      <element id="module-output" name="ajedrezz" />
+    </root>
+  </artifact>
+</component>
