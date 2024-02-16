@@ -62,7 +62,7 @@ public class Tablero {
 
     public boolean hayPiezaEntre(Movimiento mov) {
         boolean aux = false;
-        if (damePieza(mov.posInicial.getFila(), mov.posInicial.getColumna()).getClass().getSimpleName().equalsIgnoreCase("Caballo")) {
+        //if (damePieza(mov.posInicial.getFila(), mov.posInicial.getColumna()).getClass().getSimpleName().equalsIgnoreCase("Caballo")) {
             if (mov.esVertical()) {
 
                 if (mov.posInicial.getFila() < mov.posFinal.getFila()) {
@@ -107,7 +107,7 @@ public class Tablero {
                     }
                 }
             }
-        }
+        //}
 
 
         return aux;
@@ -150,7 +150,7 @@ public class Tablero {
     public void promocionar(Movimiento mov){
         Scanner lector = new Scanner(System.in);
         int opcion;
-        if (puedeProm(mov)){
+        if (puedeProm(mov) && damePieza(mov.posInicial.getFila(),mov.posInicial.getColumna()).getColor().equalsIgnoreCase("Negro")){
             System.out.println("Tu peon puede promocionar, eliga una opción numérica");
             System.out.println("1. Dama");
             System.out.println("2. Alfil");
@@ -159,20 +159,44 @@ public class Tablero {
             opcion= lector.nextInt();
             switch (opcion) {
                 case 1:{
-                    Pieza pieza =damePieza(mov.posInicial.getColumna(),mov.posInicial.getFila()) ;
-                    pieza = new Dama();
+                    ponPieza(mov.posInicial.getFila(),mov.posInicial.getColumna(), new Dama("Negro"));
                     break;
             }
                 case 2: {
-                    Pieza pieza = new Alfil();
+                    ponPieza(mov.posInicial.getFila(),mov.posInicial.getColumna(), new Alfil("Negro"));
                     break;
                 }
                 case 3:{
-                    Pieza pieza = new Caballo();
+                    ponPieza(mov.posInicial.getFila(),mov.posInicial.getColumna(), new Caballo("Negro"));
                     break;
                 }
                 case 4:{
-                    Pieza pieza = new Torre();
+                    ponPieza(mov.posInicial.getFila(),mov.posInicial.getColumna(), new Torre("Negro"));
+                    break;
+                }
+            }
+        }else if (puedeProm(mov) && damePieza(mov.posInicial.getFila(),mov.posInicial.getColumna()).getColor().equalsIgnoreCase("Blanco")){
+            System.out.println("Tu peon puede promocionar, eliga una opción numérica");
+            System.out.println("1. Dama");
+            System.out.println("2. Alfil");
+            System.out.println("3. Caballo");
+            System.out.println("4. Torre");
+            opcion= lector.nextInt();
+            switch (opcion) {
+                case 1:{
+                    ponPieza(mov.posInicial.getFila(),mov.posInicial.getColumna(), new Dama("Blanco"));
+                    break;
+                }
+                case 2: {
+                    ponPieza(mov.posInicial.getFila(),mov.posInicial.getColumna(), new Alfil("Blanco"));
+                    break;
+                }
+                case 3:{
+                    ponPieza(mov.posInicial.getFila(),mov.posInicial.getColumna(), new Caballo("Blanco"));
+                    break;
+                }
+                case 4:{
+                    ponPieza(mov.posInicial.getFila(),mov.posInicial.getColumna(), new Torre("Blanco"));
                     break;
                 }
             }

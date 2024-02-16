@@ -11,6 +11,7 @@ public abstract class Pieza {
     public Pieza(String color) {
         nombre=getClass().getSimpleName();
         this.color = color;
+
     }
 
     public abstract boolean validoMovimiento(Movimiento mov,Tablero tablero);

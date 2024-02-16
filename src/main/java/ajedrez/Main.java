@@ -23,11 +23,12 @@ public class Main {
             if (mov != null && tablero.damePieza(mov.posInicial).validoMovimiento(mov,tablero) && (!tablero.hayPiezaEntre(mov))) {
                 tablero.promocionar(mov);
                 tablero.Mover(mov);
-            } else if (mov!=null) {
-                System.out.println("Error.No se puede realizar este movimiento.");
+                juego.cambiarTurno();
+            } else if (mov==null) {
+                System.out.println("Error.No se puede realizar este movimiento. Try again.");
             }
 
-            juego.cambiarTurno();
+
             tablero.pintarTablero();
 
         }while(true);
