@@ -1,9 +1,9 @@
 package ajedrez;
 
 public abstract class Pieza {
-
-    private String color;
+    protected String color;
     protected String nombre;
+    protected String rutaImagen;
     public Pieza(){
         nombre=this.getClass().getSimpleName();
         color="Blanco";
@@ -11,9 +11,20 @@ public abstract class Pieza {
     public Pieza(String color) {
         nombre=getClass().getSimpleName();
         this.color = color;
+        rutaImagen= "File:src/main/resources/com/example/ej3gridimageview/imagenes/" + getClass().getSimpleName() + String.valueOf(color.charAt(0)).toUpperCase() + color.substring(1) + ".png";
     }
 
-    public abstract boolean validoMovimiento(Movimiento mov,Tablero tablero);
+
+
+    public String getRutaImagen() {
+        return rutaImagen;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public abstract boolean validoMovimiento(Movimiento mov, Tablero tablero);
 
     public String getColor() {
         return color;

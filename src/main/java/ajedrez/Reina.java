@@ -1,15 +1,19 @@
 package ajedrez;
 
-public class Rey extends Pieza {
-    public Rey(String color) {
+public class Reina extends Pieza {
+    public Reina(String color) {
         super(color);
     }
+
+    public Reina() {
+
+    }
+
     @Override
     public boolean validoMovimiento(Movimiento mov, Tablero tablero) {
         boolean aux=false;
-        if (Math.abs(mov.saltoHorizontal()) == 1 || Math.abs(mov.saltoVertical())==1 || mov.esDiagonal())
+        if (mov.esHorizontal()||mov.esDiagonal()||mov.esVertical())
             aux=true;
         return aux;
     }
-
 }

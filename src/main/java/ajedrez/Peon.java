@@ -3,7 +3,6 @@ package ajedrez;
 public class Peon extends Pieza {
     public Peon(String color) {
         super(color);
-        nombre=getColor().equalsIgnoreCase("negro")?"File:src/main/java/resources/com/example/Ej3GridImageView/imagenes/PeonNegro.png":"File:src/main/java/resources/com/example/Ej3GridImageView/imagenes/PeonBlanco.png";
     }
 
     @Override

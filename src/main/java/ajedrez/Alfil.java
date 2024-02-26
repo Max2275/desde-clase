@@ -3,7 +3,7 @@ package ajedrez;
 public class Alfil extends Pieza {
     public Alfil(String color) {
         super(color);
-        nombre = getColor().equalsIgnoreCase("negro")?"File:src/main/resources/com/example/ej3gridimageview/imagenes/AlfilNegro.png":"File:src/main/resources/com/example/ej3gridimageview/imagenes/AlfilBlanco.png";
+
     }
 
 

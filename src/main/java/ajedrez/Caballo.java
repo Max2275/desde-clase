@@ -3,7 +3,6 @@ package ajedrez;
 public class Caballo extends Pieza {
     public Caballo(String color) {
         super(color);
-        nombre=getColor().equalsIgnoreCase("negro")?"File:src/main/java/resources/com/example/Ej3GridImageView/imagenes/CaballoNegro.png":"File:src/main/java/resources/com/example/Ej3GridImageView/imagenes/CaballoBlanco.png";
     }
 
     public Caballo() {

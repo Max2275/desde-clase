@@ -13,7 +13,7 @@ public class Tablero {
         tablero[0][1] = new Caballo("Negro");
         tablero[0][2] = new Alfil("Negro");
         tablero[0][3] = new Rey("Negro");
-        tablero[0][4] = new Dama("Negro");
+        tablero[0][4] = new Reina("Negro");
         tablero[0][5] = new Alfil("Negro");
         tablero[0][6] = new Caballo("Negro");
         tablero[0][7] = new Torre("Negro");
@@ -25,13 +25,17 @@ public class Tablero {
         tablero[7][6] = new Caballo("Blanco");
         tablero[7][5] = new Alfil("Blanco");
         tablero[7][4] = new Rey("Blanco");
-        tablero[7][3] = new Dama("Blanco");
+        tablero[7][3] = new Reina("Blanco");
         tablero[7][2] = new Alfil("Blanco");
         tablero[7][1] = new Caballo("Blanco");
         tablero[7][0] = new Torre("Blanco");
         for (int j = 0; j < tablero.length; j++) {
             tablero[6][j] = new Peon("Blanco");
         }
+    }
+
+    public Pieza[][] getTablero() {
+        return tablero;
     }
 
     public void pintarTablero() {
@@ -159,7 +163,7 @@ public class Tablero {
             opcion= lector.nextInt();
             switch (opcion) {
                 case 1:{
-                    ponPieza(mov.posInicial.getFila(),mov.posInicial.getColumna(), new Dama("Negro"));
+                    ponPieza(mov.posInicial.getFila(),mov.posInicial.getColumna(), new Reina("Negro"));
                     break;
             }
                 case 2: {
@@ -184,7 +188,7 @@ public class Tablero {
             opcion= lector.nextInt();
             switch (opcion) {
                 case 1:{
-                    ponPieza(mov.posInicial.getFila(),mov.posInicial.getColumna(), new Dama("Blanco"));
+                    ponPieza(mov.posInicial.getFila(),mov.posInicial.getColumna(), new Reina("Blanco"));
                     break;
                 }
                 case 2: {

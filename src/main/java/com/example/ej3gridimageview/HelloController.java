@@ -1,6 +1,6 @@
 package com.example.ej3gridimageview;
 
-import ajedrez.Peon;
+import ajedrez.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,7 +11,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,12 +20,19 @@ public class HelloController implements Initializable {
     @FXML
     private GridPane mainGrid;
 
+    private Tablero tablero;
+    private Juego juego;
+    private Movimiento mov;
+
+    public HelloController() {
+    }
+
     @FXML
     protected void onHelloButtonClick() {
         label.setText("Welcome to JavaFX Application!");
     }
 
-    public void click(MouseEvent mouseEvent) {
+    /*public void click(MouseEvent mouseEvent) {
         int columna = 0;
         int fila = 0;
         for (Node node : mainGrid.getChildren()) {
@@ -52,10 +58,13 @@ public class HelloController implements Initializable {
             fila = GridPane.getRowIndex(node);
             System.out.println("Row : " + fila + ", Col : " + columna);
         }
-    }
+    }*/
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tablero = new Tablero();
+        juego= new Juego();
+        mov=new Movimiento();
         pintarTablero();
     }
     public void accion(String coordenadas){
@@ -77,11 +86,10 @@ public class HelloController implements Initializable {
                 } else{
                     pane.setStyle("-fx-background-color: #ADBC9F");
                 }
-                //Pintar fila blancas.
 
-                    //addAll vs add
-
-                    //pane.getChildren().add(new ImageView(new Image("File:src/main/resources/com/example/ej3gridimageview/imagenes/CaballoBlanco.png")));
+                if (tablero.hayPieza(i,j)) {
+                    pane.getChildren().add(new ImageView(new Image(tablero.damePieza(i,j).getRutaImagen())));
+                }
 
                 mainGrid.add(pane, j, i);
                 String message = "Click on cell ["+i+", "+j+"]";
